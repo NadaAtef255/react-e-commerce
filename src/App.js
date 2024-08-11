@@ -10,22 +10,38 @@ import RegisterForm from "./Pages/Register/RegisterForm";
 import LoginForm from "./Pages/Login/LoginForm";
 
 import HomePage from "./Pages/Home/Home";
-import CartPage from "./Pages/Cart/Cart";
+// import CartPage from "./Pages/Cart/Cart";
+import { useSelector } from "react-redux";
+import ProductsDetails from "./Pages/ProductDetails/ProductDetails";
+import Favoritelist from "./Pages/Favorite/FavoriteProducts";
+import Cartlist from "./Pages/Cart/Cart";
 
 function App() {
+  // to read or update data from Context :
+  const theme = useSelector((state) => state.myTheme.theme);
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        {/* className={myTheme == "light" ? "text-dark bg-light" : "text-light bg-dark"} */}
+        {/* bg={theme == "light" ? "dark" : "light"} */}
 
-        <div className="container">
-          <Switch>
-            <Route path="/" component={LoginForm} exact />
-            <Route path="/register" component={RegisterForm} exact />
-            <Route path="/login" component={LoginForm} exact />
-            <Route path="/home" component={HomePage} exact />
-            <Route path="/cart" component={CartPage} exact />
-          </Switch>
+        <Navbar />
+        <div
+          className={
+            theme == "light" ? "text-dark bg-light" : "text-light bg-dark"
+          }
+        >
+          <div className="container">
+            <Switch>
+              <Route path="/" component={LoginForm} exact />
+              <Route path="/register" component={RegisterForm} exact />
+              <Route path="/login" component={LoginForm} exact />
+              <Route path="/home" component={HomePage} exact />
+              <Route path="/favorite" component={Favoritelist} exact />
+              <Route path="/details/:id" component={ProductsDetails} />
+              <Route path="/cart" component={Cartlist} exact />
+            </Switch>
+          </div>
         </div>
         <Footer />
       </BrowserRouter>

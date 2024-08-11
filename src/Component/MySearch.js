@@ -2,6 +2,10 @@ import { useState } from "react";
 
 function MySearch() {
   const [search, setSearch] = useState("");
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    console.log(search);
+  };
 
   return (
     <>
@@ -10,6 +14,7 @@ function MySearch() {
           type="text"
           name="search"
           value={search} // Bind input value to state
+          onChange={(e) => handleSearch(e)}
           className="form-control" // Bootstrap form control class
           id="nameInput" // Add an ID for accessibility
         />
