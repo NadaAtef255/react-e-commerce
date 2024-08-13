@@ -1,0 +1,111 @@
+.product-card {
+  width: 100%;
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  background-size: contain; /* عرض الصورة بالكامل */
+  background-position: center;
+  background-repeat: no-repeat; /* منع تكرار الصورة */
+  position: relative;
+  filter: brightness(60%);
+}
+
+.content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.product-card:hover .content-overlay {
+  opacity: 1;
+}
+
+.content {
+  max-width: 900px;
+  text-align: center;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.category,
+.price,
+.rating {
+  font-size: 2rem;
+}
+
+.btn-details {
+  background-color: #ff6f61;
+  border: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-details:hover {
+  background-color: #e55d50;
+  transform: scale(1.1);
+}
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .content {
+    max-width: 90%;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1.2rem;
+  }
+
+  .btn-details {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}

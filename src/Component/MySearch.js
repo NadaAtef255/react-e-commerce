@@ -9,7 +9,7 @@ function MySearch() {
 
   return (
     <>
-      <div className="form-floating mb-3">
+      <div className="form-floating m-5 fixed-top">
         <input
           type="text"
           name="search"

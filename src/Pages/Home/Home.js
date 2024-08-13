@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import MySearch from "../../Component/MySearch";
 import { useEffect, useState } from "react";
-import MyCard from "../../Component/MyCard";
+import MyCard from "../../Component/Cart/MyCard";
 import { getProducts } from "../../Redux/Actions/ProductsActions";
-
+import './Home.css'
 function HomePage() {
   const products = useSelector((state) => state.myList.list);
   const dispatch = useDispatch();
@@ -28,11 +28,11 @@ function HomePage() {
     <>
       <br />
       <MySearch />
-      <div className="container">
+      <div className=" mt-h8">
         <div className="row">
           {products.map((product, index) => {
             return (
-              <div className=" col-md-4 " key={index}>
+              <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
                 <MyCard
                   width="18rem"
                   image={product.image}

@@ -1,0 +1,98 @@
+/* Card.css */
+
+.card {
+  
+    width: 18rem;
+    height: 28rem; /* طول الكارت ثابت */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .favorite-button {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(117, 116, 116); 
+    z-index: 10;
+  }
+  
+  .favorite-button.fav {
+    color: red;
+  }
+  
+  .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px; /* مسافة أقل بين العنوان والأزرار */
+    margin-top: 10px;
+  }
+  
+  .card-text {
+    margin-bottom: 5px;
+  }
+  
+  .card-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .card-buttons .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* يجعل الأزرار بنفس العرض */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    min-width: 120px; /* عرض ثابت للأزرار */
+  }
+  
+  .card-buttons .btn-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .card-buttons .btn-cart.add {
+    background-color: green;
+    color: white;
+  }
+  
+  .card-buttons .btn-cart.remove {
+    background-color: red;
+    color: white;
+  }
+  
+  .card-buttons .btn-cart .fa-shopping-cart {
+    margin-right: 5px;
+  }
+  

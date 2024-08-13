@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import MyCard from "../../Component/MyCard";
+import MyCard from "../../Component/Cart/MyCard"
 import MyTitle from "../../Component/MyTitle";
 
 function Cartlist() {
@@ -12,10 +12,10 @@ function Cartlist() {
         <MyTitle head="Cart List" myColor="red" />
         <br></br>
         <div className="container">
-          <div className="row gap-3">
+          <div className="row">
             {carts.map((cart, index) => {
               return (
-                <div className=" col-md-4 " key={index}>
+                <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
                   <MyCard
                     width="18rem"
                     image={cart.image}
