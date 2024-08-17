@@ -163,11 +163,12 @@ import "./Home.css";
 import { CategoriesContext } from "../../Context/CategoriesContext";
 import axios from "axios";
 import { PriceContext } from "../../Context/PriceContext";
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 
 function HomePage() {
   const { category } = useContext(CategoriesContext);
   const { price } = useContext(PriceContext);
+  console.log(price);
 
   const [allProducts, setAllProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -177,7 +178,7 @@ function HomePage() {
     const fetchProducts = async () => {
       //category/
       const apiUrl = category
-        ? `https://my-shop-hossam.glitch.me/products/${category}`
+        ? `https://my-shop-hossam.glitch.me/products?category=${category}`
         : `https://my-shop-hossam.glitch.me/products`;
 
       const response = await axios.get(apiUrl);
@@ -190,22 +191,34 @@ function HomePage() {
   }, [category]);
 
   // Sort products when price changes
+  // useEffect(() => {
+  //   const sortedProducts = [...allProducts].sort((a, b) => {
+  //     if (price === "asc") {
+  //       return a.price - b.price;
+  //     } else if (price === "desc") {
+  //       return b.price - a.price;
+  //     }
+  //     return 0;
+  //   });
+  //   setFilteredProducts(sortedProducts);
+  // }, [price, allProducts]); // Effect depends on price and allProducts
   useEffect(() => {
-    const sortedProducts = [...allProducts].sort((a, b) => {
-      if (price === "asc") {
-        return a.price - b.price;
-      } else if (price === "desc") {
-        return b.price - a.price;
-      }
-      return 0;
-    });
-    setFilteredProducts(sortedProducts);
-  }, [price, allProducts]); // Effect depends on price and allProducts
+    if (price) {
+      const sortedProducts = [...allProducts].sort((a, b) => {
+        return price === "asc" ? a.price - b.price : b.price - a.price;
+      });
+      setFilteredProducts(sortedProducts);
+    }
+  }, [price, allProducts]);
 
   // Handle the search filtering and update filteredProducts
-  const handleFilter = (filtered) => {
+  // const handleFilter = (filtered) => {
+  //   setFilteredProducts(filtered);
+  // };
+  // Memoize the handleFilter function to avoid unnecessary re-renders
+  const handleFilter = useCallback((filtered) => {
     setFilteredProducts(filtered);
-  };
+  }, []);
 
   return (
     <>

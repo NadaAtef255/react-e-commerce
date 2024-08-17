@@ -133,7 +133,7 @@ function Navbar() {
                 <li className="nav-item">
                   <button
                     className="nav-link btn btn-info"
-                    onClick={() => setPrice("desc")}
+                    onClick={() => setPrice("asc")}
                   >
                     Low to High
                   </button>
@@ -141,7 +141,7 @@ function Navbar() {
                 <li className="nav-item">
                   <button
                     className="nav-link btn btn-info"
-                    onClick={() => setPrice("asc")}
+                    onClick={() => setPrice("desc")}
                   >
                     High to Low
                   </button>
