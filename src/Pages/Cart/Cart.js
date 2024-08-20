@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import MyCard from "../../Component/Cart/MyCard"
 import MyTitle from "../../Component/MyTitle";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Cartlist() {
   const carts = useSelector((state) => state.myCart.cart);
@@ -24,7 +25,8 @@ function Cartlist() {
                     btnName="View Details"
                     product={cart}
                     // movie={cart}
-                  />
+                    />
+                    <Link to="/home">Back To Home</Link>
                 </div>
               );
             })}

@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import MyTitle from "../../Component/MyTitle";
 import MyCard from "../../Component/Cart/MyCard";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Favoritelist() {
   const favorites = useSelector((state) => state.favorite.favorites);
@@ -21,11 +22,12 @@ function Favoritelist() {
                   width="18rem"
                   image={fav.image}
                   name={fav.title}
-                  movie={fav}
+                  product={fav}
                 />
               </div>
             );
           })}
+
         </div>
       </div>
     </div>

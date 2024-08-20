@@ -1,0 +1,1 @@
+export const BASE_URL='https://my-shop-hossam.glitch.me';

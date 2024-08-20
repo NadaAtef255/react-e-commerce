@@ -5,13 +5,14 @@ import { Link, useParams } from "react-router-dom/cjs/react-router-dom.min";
 // import MyCard from "../Cart/MyCard";
 import MyTitle from "../../Component/MyTitle";
 import './ProductDetails.css'
+import { BASE_URL } from "../../Servises/api";
 function ProductsDetails() {
   const [product, setProducts] = useState({});
   const params = useParams();
   console.log(params.id);
 
   useEffect(() => {
-     axios .get(`https://fakestoreapi.com/products/${params.id}`)
+     axios .get(`${BASE_URL}/products/${params.id}`)
       .then((res) => {
         console.log("from details", res.data);
         setProducts(res.data);

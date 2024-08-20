@@ -2,7 +2,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCwEQWihgFXFIPKD7vpGn-FXeo_2cjq4hI",
   authDomain: "ecommerce-35d3d.firebaseapp.com",
@@ -12,6 +11,5 @@ const firebaseConfig = {
   appId: "1:1037239677764:web:03e66bf6eb63544d6fdd11"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
