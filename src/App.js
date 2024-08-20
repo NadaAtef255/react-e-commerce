@@ -20,41 +20,51 @@ import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import { CategoriesContext } from "./Context/CategoriesContext";
+import { useState } from "react";
+import { PriceContext } from "./Context/PriceContext";
 
 function App() {
   const theme = useSelector((state) => state.myTheme.theme);
-
+  const [category, setCategory] = useState("");
+  const [price, setPrice] = useState("");
   return (
     <>
-      <UserContextProvider>
-        <BrowserRouter>
-          <Navbar />
-          <div
-            className={
-              theme === "light" ? "text-dark bg-light" : "text-light bg-dark"
-            }
-          >
-            <div className="container">
-              <Switch>
-                <Route path="/" component={HomePage} exact />
-                <Route path="/register" component={Signup} exact />
-                <Route path="/login" component={LoginForm} exact />
-                <PrivateRoute path="/home" component={HomePage} exact />
-                <PrivateRoute path="/favorite" component={Favoritelist} exact />
-                <PrivateRoute
-                  path="/details/:id"
-                  component={ProductsDetails}
-                  exact
-                />
-                <PrivateRoute path="/cart" component={Cartlist} exact />
-                <Route path="*" component={NotFound} />
-              </Switch>
-            </div>
-          </div>
-          <ToastContainer />
+      <BrowserRouter>
+        <UserContextProvider>
+          {/* className={myTheme == "light" ? "text-dark bg-light" : "text-light bg-dark"} */}
+          {/* bg={theme == "light" ? "dark" : "light"} */}
+          <CategoriesContext.Provider value={{ category, setCategory }}>
+            <PriceContext.Provider value={{ price, setPrice }}>
+              <Navbar />
+              <div
+                className={
+                  theme == "light" ? "text-dark bg-light" : "text-light bg-dark"
+                }
+              >
+                <div className="container">
+                  <Switch>
+                    <Route path="/" component={HomePage} exact />
+                    <Route path="/register" component={Signup} exact />
+                    <Route path="/login" component={LoginForm} exact />
+                    <Route path="/home" component={HomePage} exact />
+                    <Route path="/details/:id" component={ProductsDetails} />
+                    <PrivateRoute
+                      path="/favorite"
+                      component={Favoritelist}
+                      exact
+                    />
+                    <PrivateRoute path="/cart" component={Cartlist} exact />
+                    <Route path="*" component={NotFound} />
+                  </Switch>
+                </div>
+              </div>
+            </PriceContext.Provider>
+          </CategoriesContext.Provider>
           <Footer />
-        </BrowserRouter>
-      </UserContextProvider>
+          <ToastContainer />
+        </UserContextProvider>
+      </BrowserRouter>
     </>
   );
 }

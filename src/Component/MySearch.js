@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import MyCard from "./Cart/MyCard";
 
-function MySearch() {
+function MySearch({ products, onFilter }) {
   const [search, setSearch] = useState("");
+
+  // Handle search input changes
   const handleSearch = (e) => {
     setSearch(e.target.value);
-    console.log(search);
   };
+
+  // Filter products based on search query and notify parent
+  useEffect(() => {
+    const filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    );
+    onFilter(filteredProducts);
+  }, [search, products, onFilter]);
 
   return (
     <>
@@ -14,10 +24,11 @@ function MySearch() {
         <input
           type="text"
           name="search"
-          value={search} 
-          onChange={(e) => handleSearch(e)}
-          className="form-control" 
+          value={search}
+          onChange={handleSearch}
+          className="form-control"
           id="nameInput"
+          placeholder="Search for Product"
         />
 
         <label htmlFor="nameInput">Search For Product</label>
@@ -25,4 +36,5 @@ function MySearch() {
     </>
   );
 }
+
 export default MySearch;

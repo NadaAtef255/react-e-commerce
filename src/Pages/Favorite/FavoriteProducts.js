@@ -6,6 +6,8 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Favoritelist() {
   const favorites = useSelector((state) => state.favorite.favorites);
+  console.log(favorites);
+
   const dispatch = useDispatch();
 
   return (

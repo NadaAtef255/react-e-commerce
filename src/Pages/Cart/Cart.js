@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import MyCard from "../../Component/Cart/MyCard"
+import MyCard from "../../Component/Cart/MyCard";
 import MyTitle from "../../Component/MyTitle";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 function Cartlist() {
   const carts = useSelector((state) => state.myCart.cart);
+  console.log(carts);
+
   const dispatch = useDispatch();
   return (
     <>
@@ -31,8 +33,8 @@ function Cartlist() {
               );
             })}
           </div>
-        </div>
-      </div>
+          </div>
+    </div>
     </>
   );
 }
