@@ -1,0 +1,38 @@
+/* Container styling for the cart summary */
+.cart-summary {
+    background-color: #020e1a; /* Light background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Space around content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-top: 30px; /* Space above the summary */
+    text-align: center; /* Centered text */
+    color: white;
+  }
+  
+  /* Styling for the cart summary heading */
+  .cart-summary h4 {
+    font-size: 1.5rem;
+    /* color: #333; */
+    margin-bottom: 15px; /* Space below the heading */
+  }
+  
+  /* Styling for the cart summary paragraphs */
+  .cart-summary p {
+    font-size: 1.2rem;
+    /* color: #555; */
+    margin: 10px 0; /* Space around each line */
+  }
+  
+  /* Highlighted final total */
+  .cart-summary h5 {
+    font-size: 1.7rem;
+    color: #007bff; /* Blue color for emphasis */
+    margin-top: 20px; /* Space above the final total */
+  }
+  
+  /* Optional: Add a subtle hover effect to make the summary more interactive */
+  .cart-summary:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    transition: transform 0.3s ease;
+  }
+  

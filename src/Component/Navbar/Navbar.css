@@ -1,3 +1,95 @@
-.w95{
-    width: 95%;
+/* Remove underline from links */
+.nav-link,
+.dropdown-item {
+    text-decoration: none;
+}
+
+/* Optionally, ensure no underline appears on hover or active states */
+.nav-link:hover,
+.nav-link.active,
+.dropdown-item:hover {
+    text-decoration: none;
+}
+/* Improved Navbar Link Hover and Active States */
+.nav-link:hover,
+.nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Improved Dropdown Menu */
+.navbar .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1050;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    border: none; /* Removed border for cleaner look */
+}
+
+/* Dropdown Item Hover */
+.dropdown-item:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Fixed Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow for better visibility */
+}
+
+/* Navbar Link Styles */
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link.active {
+    color: #fff;
+}
+
+/* Button Hover */
+.btn-outline-primary:hover {
+    background-color: #0056b3;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        margin-bottom: 0.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .navbar-toggler-icon {
+        font-size: 1rem;
+    }
+}
+
+/* Adjusted Form Floating Z-Index */
+.form-floating {
+    z-index: 100; /* Lower z-index than dropdown to prevent overlap */
+}
+
+/* Padding Adjustment for Fixed Navbar */
+body {
+    padding-top: 56px; /* Prevent content from being hidden under the fixed navbar */
 }

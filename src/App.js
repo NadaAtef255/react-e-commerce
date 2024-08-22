@@ -19,21 +19,22 @@ import NotFound from "./Pages/NotFound/NotFound";
 import { useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { CategoriesContext } from "./Context/CategoriesContext";
 import { useState } from "react";
 import { PriceContext } from "./Context/PriceContext";
+import ProductsCategories from "./Pages/Categories/ProductsCategories";
+import CreateProduct from "./Pages/Dashboard/CreateProduct/CreateProduct";
+import ManageProducts from "./Pages/Dashboard/ManageProducts/ManageProducts";
 
 function App() {
   const theme = useSelector((state) => state.myTheme.theme);
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
+
   return (
     <>
       <BrowserRouter>
         <UserContextProvider>
-          {/* className={myTheme == "light" ? "text-dark bg-light" : "text-light bg-dark"} */}
-          {/* bg={theme == "light" ? "dark" : "light"} */}
           <CategoriesContext.Provider value={{ category, setCategory }}>
             <PriceContext.Provider value={{ price, setPrice }}>
               <Navbar />
@@ -49,12 +50,15 @@ function App() {
                     <Route path="/login" component={LoginForm} exact />
                     <Route path="/home" component={HomePage} exact />
                     <Route path="/details/:id" component={ProductsDetails} />
+                    <PrivateRoute path="/category/:type" component={ProductsCategories} />
                     <PrivateRoute
                       path="/favorite"
                       component={Favoritelist}
                       exact
                     />
                     <PrivateRoute path="/cart" component={Cartlist} exact />
+                    <PrivateRoute path="/create-product/:id?" component={CreateProduct} exact />
+                    <PrivateRoute path="/manage-products" component={ManageProducts} exact />
                     <Route path="*" component={NotFound} />
                   </Switch>
                 </div>

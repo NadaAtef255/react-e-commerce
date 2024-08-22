@@ -27,6 +27,7 @@ export default function Login() {
       const crruntUser = userCredential.user;
       const idToken = await crruntUser.getIdToken();
       localStorage.setItem("userToken", idToken);
+      localStorage.setItem("userEmail", crruntUser.email);
       history.push("/");
       setUserData(crruntUser);
       setsuccess("Login successfule");

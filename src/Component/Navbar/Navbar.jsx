@@ -26,6 +26,7 @@ function Navbar() {
 
   const logOut = () => {
     localStorage.removeItem("userToken");
+    localStorage.removeItem("userEmail");
     setUserData(null);
     setUsertoken(null);
     history.push("/login");
@@ -42,7 +43,6 @@ function Navbar() {
               dashboard
             </Link>
           </li>
-
           <li className="nav-item ">
             <button className="nav-link" onClick={logOut}>
               logOut

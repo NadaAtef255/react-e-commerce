@@ -61,25 +61,33 @@ export default function Signup() {
   };
 
   return (
-    <div className='body'>
- <div className="container">
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignUp}>
-        <label htmlFor="fname">First Name</label>
-        <input onChange={(e) => setFname(e.target.value)} required id="fname" type="text" value={fName} />
-        <label htmlFor="lname">Last Name</label>
-        <input onChange={(e) => setLname(e.target.value)} required id="lname" type="text" value={lName} />
-        <label htmlFor="email">Email</label>
-        <input onChange={(e) => setEmail(e.target.value)} required id="email" type="email" value={email} />
-        <label htmlFor="password">Password</label>
-        <input onChange={(e) => setPassword(e.target.value)} required id="password" type="password" value={password} />
-        <button type="submit">Sign Up</button>
-      </form>
-
-      {error && <div className="error-message">{error}</div>}
-      {success && <div className="success-message">{success}</div>}
+    <div className='d-flex justify-content-center align-items-center vh-100 bg-light'>
+      <div className="container bg-white p-4 rounded shadow-sm">
+        <h1 className="text-center mb-4">Sign Up</h1>
+        <form onSubmit={handleSignUp}>
+          <div className="mb-3">
+            <label htmlFor="fname" className="form-label">First Name</label>
+            <input onChange={(e) => setFname(e.target.value)} required id="fname" type="text" value={fName} className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="lname" className="form-label">Last Name</label>
+            <input onChange={(e) => setLname(e.target.value)} required id="lname" type="text" value={lName} className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">Email</label>
+            <input onChange={(e) => setEmail(e.target.value)} required id="email" type="email" value={email} className="form-control" />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">Password</label>
+            <input onChange={(e) => setPassword(e.target.value)} required id="password" type="password" value={password} className="form-control" />
+          </div>
+          <button type="submit" className="btn-color w-100">
+          Sign Up
+        </button>
+        </form>
+        {error && <div className="alert alert-danger mt-3">{error}</div>}
+        {success && <div className="alert alert-success mt-3">{success}</div>}
+      </div>
     </div>
-    </div>
-   
   );
 }

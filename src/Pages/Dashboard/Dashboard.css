@@ -1,0 +1,30 @@
+.dashboard-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+
+    h1 {
+        color: red;
+        font-size: 70px;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 24px;
+        border-radius: 12px;
+        border: 1px solid #000;
+        padding: 12px;
+        background: #000;
+    }
+}

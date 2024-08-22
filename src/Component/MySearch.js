@@ -1,26 +1,33 @@
+
+  // Filter products based on search query and notify parent
+  // useEffect(() => {
+  //   const filteredProducts = products.filter((product) =>
+  //     product.title.toLowerCase().includes(search.toLowerCase())
+  //   );
+  //   onFilter(filteredProducts);
+  // }, [search, products, onFilter]);
+
 import { useState, useEffect } from "react";
-import MyCard from "./Cart/MyCard";
 
 function MySearch({ products, onFilter }) {
   const [search, setSearch] = useState("");
 
-  // Handle search input changes
   const handleSearch = (e) => {
     setSearch(e.target.value);
   };
 
-  // Filter products based on search query and notify parent
   useEffect(() => {
-    const filteredProducts = products.filter((product) =>
-      product.title.toLowerCase().includes(search.toLowerCase())
-    );
+    const filteredProducts = products.filter((product) => {
+      // تأكد أن product.title معرف وغير فارغ
+      return product.title && product.title.toLowerCase().includes(search.toLowerCase());
+    });
     onFilter(filteredProducts);
   }, [search, products, onFilter]);
 
   return (
     <>
     
-      <div className="form-floating m-5 fixed-top">
+      <div style={{position:'relative',zIndex:'100'}} className="form-floating m-5 fixed-top">
         <input
           type="text"
           name="search"

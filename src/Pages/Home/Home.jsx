@@ -65,24 +65,22 @@ function HomePage() {
         <>
           {" "}
           <br />
-          <MySearch />
+          <MySearch products={allProducts} onFilter={handleFilter} />
           <div className=" mt-h8">
             <div className="row">
-              {products.map((product, index) => {
-                return (
-                  <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
-                    <MyCard
-                      width="18rem"
-                      image={product.image}
-                      name={product.title}
-                      url={`/details/${product.id}`}
-                      btnName="View Details"
-                      product={product}
-                      // cart="Add To Cart"
-                    />
-                  </div>
-                );
-              })}
+            {filteredProducts.map((product, index) => (
+            <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
+              <MyCard
+                width="18rem"
+                image={product.image}
+                name={product.title}
+                price={product.price}
+                url={`/details/${product.id}`}
+                btnName="View Details"
+                product={product}
+              />
+            </div>
+          ))}
             </div>
           </div>
         </>
